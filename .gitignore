@@ -1,6 +1,1 @@
-node_modules/
-dist/
-.env.local
-.env
-*.local
-public/assets/audio/*.mp3
+node_modules
