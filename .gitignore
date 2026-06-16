@@ -1,1 +1,29 @@
-node_modules
+node_modules/
+dist/
+dist-ssr/
+build/
+
+# env files
+.env
+.env.local
+.env.*.local
+*.local
+
+# generated audio (regenerate via npm run generate-audio)
+public/assets/audio/*.mp3
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# vercel
+.vercel

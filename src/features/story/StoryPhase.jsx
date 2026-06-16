@@ -167,20 +167,14 @@ export default function StoryPhase({ onComplete, playNarration, stop }) {
 
   return (
     <div className="story-screen">
+
       <div className="story-card glass-card">
 
-        {/* ── Illustrated scene (210 px tall SVG) ── */}
-        <div style={{
-          position: 'relative',
-          width: '100%',
-          height: '210px',
-          flexShrink: 0,
-          borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0',
-          overflow: 'hidden',
-          borderBottom: '1px solid rgba(255,255,255,0.08)',
-        }}>
+        {/* ── Illustrated scene — constrained inside the card ── */}
+        <div className="story-image-full">
           <svg
             viewBox="0 0 400 210"
+            preserveAspectRatio="none"
             xmlns="http://www.w3.org/2000/svg"
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
           >
