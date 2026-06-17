@@ -51,23 +51,24 @@ export default function SimulatePhase({ onComplete, playNarration }) {
     return (
       <div className="simulate-screen">
         <motion.div
-          className="simulate-card glass-card"
+          className="simulate-card glass-card sim-complete-card"
           initial={{ opacity:0, scale:0.88 }}
           animate={{ opacity:1, scale:1 }}
-          style={{ justifyContent:'center', alignItems:'center', textAlign:'center', maxWidth:480 }}
         >
-          <div style={{ fontSize:'2.8rem', marginBottom:8 }}>🏆</div>
-          <h2 style={{ fontFamily:'var(--font-display)', fontSize:'1.6rem', marginBottom:4 }}>All Stations Complete!</h2>
-          <p style={{ color:'var(--color-text-muted)', marginBottom:18 }}>Total: {totalScore} / 9</p>
-          <div style={{ display:'flex', flexDirection:'column', gap:10, marginBottom:20, width:'100%', maxWidth:340 }}>
+          <div style={{ fontSize:'2.6rem', marginBottom:8, textAlign:'center' }}>🏆</div>
+          <h2 style={{ fontFamily:'var(--font-display)', fontSize:'1.5rem', marginBottom:4, textAlign:'center' }}>All Stations Complete!</h2>
+          <p style={{ color:'var(--color-text-muted)', marginBottom:16, textAlign:'center' }}>Total: {totalScore} / 9</p>
+          <div style={{ display:'flex', flexDirection:'column', gap:8, marginBottom:18, width:'100%' }}>
             {STATIONS.map(s => (
-              <div key={s.id} style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'8px 14px', background:'rgba(255,255,255,0.05)', borderRadius:'var(--radius-md)' }}>
-                <span style={{ fontFamily:'var(--font-display)', fontWeight:700 }}>{s.icon} {s.title}</span>
+              <div key={s.id} style={{ display:'flex', alignItems:'center', justifyContent:'space-between', padding:'8px 12px', background:'rgba(255,255,255,0.05)', borderRadius:'var(--radius-md)' }}>
+                <span style={{ fontFamily:'var(--font-display)', fontWeight:700, fontSize:'0.9rem' }}>{s.icon} {s.title}</span>
                 <StarRow score={stationScores[s.id] ?? 0} />
               </div>
             ))}
           </div>
-          <Button variant="primary" size="lg" onClick={onComplete}>Play! 🎮</Button>
+          <div style={{ textAlign:'center' }}>
+            <Button variant="primary" size="lg" onClick={onComplete}>Play! 🎮</Button>
+          </div>
         </motion.div>
       </div>
     );

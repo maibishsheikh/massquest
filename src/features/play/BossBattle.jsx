@@ -66,7 +66,7 @@ export default function BossBattle({ questions, world, worldAccent, onComplete, 
 
   if (!started) {
     return (
-      <div className="boss-banner glass-card" style={{ margin: '0 auto', maxWidth: 500, padding: 32, textAlign: 'center' }}>
+      <div className="boss-banner glass-card">
         <motion.div
           className="boss-emoji"
           animate={{ scale: [1, 1.12, 1] }}
@@ -74,10 +74,10 @@ export default function BossBattle({ questions, world, worldAccent, onComplete, 
         >
           {boss.emoji}
         </motion.div>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.8rem', color: 'var(--gold)', margin: '12px 0 8px' }}>
+        <h2 className="boss-title">
           {boss.name}
         </h2>
-        <p style={{ color: 'var(--color-text-muted)', marginBottom: 20 }}>
+        <p className="boss-subtitle">
           Answer {questions.length} questions correctly to defeat the boss!
           You have 3 lives ❤️❤️❤️
         </p>
@@ -94,18 +94,16 @@ export default function BossBattle({ questions, world, worldAccent, onComplete, 
   if (won) {
     return (
       <motion.div
+        className="boss-result-screen"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        style={{ textAlign: 'center', padding: 32 }}
       >
-        <div style={{ fontSize: '4rem', marginBottom: 12 }}>🏆</div>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', color: 'var(--gold)' }}>
-          Boss Defeated!
-        </h2>
+        <div className="boss-result-emoji">🏆</div>
+        <h2 className="boss-title">Boss Defeated!</h2>
         <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: 8 }}>
           You earned: {boss.reward}
         </p>
-        <p style={{ color: 'var(--gold)', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.2rem' }}>
+        <p style={{ color: 'var(--gold)', fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.1rem' }}>
           +{XP_REWARDS.BOSS_WIN} XP Bonus! 🎉
         </p>
       </motion.div>
@@ -114,9 +112,9 @@ export default function BossBattle({ questions, world, worldAccent, onComplete, 
 
   if (lost) {
     return (
-      <div style={{ textAlign: 'center', padding: 24 }}>
-        <div style={{ fontSize: '3rem' }}>💔</div>
-        <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--red)' }}>
+      <div className="boss-result-screen">
+        <div className="boss-result-emoji">💔</div>
+        <h3 style={{ fontFamily: 'var(--font-display)', color: 'var(--red)', marginBottom: 8 }}>
           Out of lives! Try again!
         </h3>
         <p style={{ color: 'var(--color-text-muted)', marginBottom: 16 }}>

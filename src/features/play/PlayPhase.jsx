@@ -149,7 +149,7 @@ export default function PlayPhase({ onComplete, playNarration }) {
         </motion.div>
       )}
       {screen === 'playing' && (
-        <motion.div key="playing" style={{ position:'absolute', inset:0, top:64, display:'flex', flexDirection:'column', alignItems:'center', padding:'10px 14px', overflow:'hidden' }}
+        <motion.div key="playing" style={{ position:'absolute', inset:0, top:64, display:'flex', flexDirection:'column', alignItems:'center', padding:'10px 14px', overflowY:'auto', overflowX:'hidden' }}
           initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}>
           {/* Breadcrumb */}
           <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:8, width:'100%', maxWidth:600, flexShrink:0, fontFamily:'var(--font-display)', fontWeight:700, fontSize:'0.82rem', color:'var(--color-text-muted)' }}>

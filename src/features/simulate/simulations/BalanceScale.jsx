@@ -38,7 +38,7 @@ function BalanceSVG({ left, right, tiltRevealed }) {
     : 0;
 
   return (
-    <svg viewBox="0 0 280 200" style={{ width:'100%', maxWidth:260, height:'auto' }}>
+    <svg viewBox="0 0 280 200" style={{ width:'100%', maxWidth:260, height:'auto', display:'block', margin:'0 auto' }}>
       {/* Stand pole */}
       <rect x="137" y="60" width="6" height="118" rx="3" fill="rgba(255,255,255,0.25)" />
       {/* Base */}

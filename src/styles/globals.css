@@ -777,3 +777,251 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — TABLET  (≤ 768px)
+   ════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Intro: 5-col → 3-col grid */
+  .intro-journey-map {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    max-width: 100%;
+  }
+
+  /* Worlds: 3 → 2 cols */
+  .world-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  /* Story image shorter */
+  .story-image-full      { height: 175px; }
+  .story-image           { height: 175px; }
+  .story-image-placeholder { height: 175px; }
+
+  /* Story content scrollable when image stays */
+  .story-content { overflow-y: auto; }
+
+  /* Allow wonder/intro/play screens to scroll */
+  .wonder-screen  { overflow-y: auto; justify-content: flex-start; padding-top: 16px; }
+  .intro-screen   { overflow-y: auto; justify-content: flex-start; }
+  .play-screen    { overflow-y: auto; justify-content: flex-start; }
+
+  /* Station tabs: horizontal scroll on narrow screens */
+  .station-selector {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: 100%;
+  }
+  .station-selector::-webkit-scrollbar { display: none; }
+  .station-tab { flex-shrink: 0; }
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤ 480px)
+   ════════════════════════════════════════════ */
+@media (max-width: 480px) {
+
+  /* ── Journey bar — icon-only ── */
+  .journey-bar { padding: 5px 8px; gap: 1px; }
+  .journey-step { padding: 5px 5px; min-width: 30px; gap: 0; }
+  .journey-step-label  { display: none; }
+  .journey-connector   { width: 5px; }
+  .journey-step-icon   { font-size: 1rem; }
+
+  /* ── Intro screen ── */
+  .intro-screen { padding: 62px 12px 12px; gap: 8px; }
+  .intro-title  { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .intro-badge  { font-size: 0.7rem; padding: 4px 12px; }
+  .intro-journey-map { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .intro-journey-step { padding: 8px 4px; }
+  .intro-journey-step .step-icon  { font-size: 1.25rem; margin-bottom: 2px; }
+  .intro-journey-step .step-label { font-size: 0.72rem; margin-bottom: 0; }
+  .intro-journey-step .step-desc  { display: none; }
+  .intro-feature-card { padding: 6px 12px; font-size: 0.78rem; }
+  .intro-feature-cards { gap: 6px; }
+
+  /* ── Top bar buttons — don't clip journey bar ── */
+  .audio-toggle-btn, .home-btn { width: 36px; height: 36px; top: 12px; }
+  .home-btn  { left: 8px; }
+  .audio-toggle-btn { right: 8px; }
+
+  /* ── Wonder phase ── */
+  .wonder-screen { gap: 10px; padding: 10px 12px; top: 58px; }
+  .wonder-orb    { width: 64px; height: 64px; font-size: 2rem; box-shadow: 0 0 24px rgba(124,92,191,0.5); }
+  .wonder-card   { padding: 16px 18px; }
+  .wonder-emoji  { font-size: 2.2rem; margin-bottom: 6px; }
+  .wonder-question { font-size: 1.05rem; margin-bottom: 6px; }
+  .wonder-subtext  { font-size: 0.82rem; }
+
+  /* ── Story phase ── */
+  .story-screen { top: 58px; padding: 8px 12px; }
+  .story-card   { max-height: calc(100vh - 70px); }
+  .story-image-full        { height: 140px; }
+  .story-image             { height: 140px; }
+  .story-image-placeholder { height: 140px; }
+  .story-content { padding: 12px 14px; overflow-y: auto; }
+  .story-title  { font-size: 1.15rem; margin-bottom: 6px; }
+  .story-body   { font-size: 0.88rem; line-height: 1.5; margin-bottom: 8px; }
+  .story-highlight { padding: 8px 12px; font-size: 0.9rem; margin-bottom: 8px; }
+  .story-answer    { font-size: 0.78rem; margin-bottom: 6px; }
+  .story-nav { padding: 8px 12px; }
+
+  /* ── Simulate phase ── */
+  .simulate-screen { top: 58px; padding: 8px 10px 8px; gap: 6px; }
+  .station-tab { padding: 6px 12px; }
+  .station-tab .station-tab-icon  { font-size: 1.1rem; }
+  .station-tab .station-tab-label { font-size: 0.66rem; }
+  .simulate-card { padding: 14px 14px; }
+
+  /* ── Play phase ── */
+  .play-screen { top: 58px; padding: 8px 10px; gap: 8px; }
+  .world-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .world-card { padding: 12px 6px; }
+  .world-card .world-emoji { font-size: 1.8rem; }
+  .world-card .world-name  { font-size: 0.9rem; }
+  .world-card .world-desc  { font-size: 0.68rem; }
+  .mode-grid  { grid-template-columns: 1fr; gap: 8px; max-width: 100%; }
+  .mode-card  { padding: 12px 14px; }
+  .mode-card .mode-icon { font-size: 1.5rem; }
+  .mode-card .mode-name { font-size: 0.88rem; }
+  .mode-card .mode-desc { font-size: 0.70rem; }
+
+  /* ── Question card ── */
+  .play-question-area { max-width: 100%; }
+  .question-card { padding: 14px 12px; }
+  .question-text { font-size: 0.98rem; margin-bottom: 12px; }
+  .topic-badge   { font-size: 0.65rem; padding: 3px 10px; margin-bottom: 8px; }
+  .options-grid  { gap: 8px; }
+  .option-btn    { font-size: 0.88rem; padding: 10px 8px; min-height: 44px; }
+
+  /* ── Buttons ── */
+  .btn    { padding: 10px 20px; font-size: 0.9rem; }
+  .btn-lg { padding: 12px 24px; font-size: 1rem; }
+  .btn-sm { padding: 7px 14px; font-size: 0.8rem; }
+
+  /* ── Feedback overlay ── */
+  .feedback-content  { padding: 20px 18px; }
+  .feedback-emoji    { font-size: 2.4rem; }
+  .feedback-message  { font-size: 1.05rem; }
+
+  /* ── Mascot / speech bubble ── */
+  .mascot         { font-size: 2rem; }
+  .speech-bubble  { max-width: 190px; font-size: 0.82rem; padding: 8px 12px; }
+
+  /* ── Reflect phase ── */
+  .reflect-screen { top: 58px; padding: 8px 10px; }
+  .reflect-card   { padding: 14px 16px; }
+  .reflect-badge  { padding: 10px 14px; gap: 8px; max-width: 100%; }
+  .reflect-badge-icon  { font-size: 1.8rem; }
+  .reflect-badge-title { font-size: 0.9rem; }
+  .takeaways-list li   { font-size: 0.84rem; }
+
+  /* ── HUD chips ── */
+  .hud-item { padding: 4px 10px; font-size: 0.78rem; }
+  .hud      { gap: 6px; }
+
+  /* ── Score ring ── */
+  .score-circle-value { font-size: 1.9rem; }
+  .score-circle-label { font-size: 0.72rem; }
+
+  /* ── Glass card global ── */
+  .glass-card { border-radius: var(--radius-md); }
+
+  /* ── Hint bubble ── */
+  .hint-bubble { font-size: 0.82rem; padding: 8px 12px; }
+
+  /* ── Conversion fact box ── */
+  .conversion-fact-box { padding: 8px 12px; font-size: 1rem; }
+
+  /* ── Phase viewport ── */
+  .phase-viewport { padding: 8px 10px 10px; top: 58px; }
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — VERY SMALL  (≤ 360px)
+   ════════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .journey-step      { padding: 4px 4px; }
+  .journey-step-icon { font-size: 0.9rem; }
+
+  .intro-title        { font-size: 1.5rem; }
+  .intro-journey-map  { grid-template-columns: repeat(2, 1fr); }
+
+  .world-grid  { grid-template-columns: 1fr; }
+  .world-card  { padding: 10px 12px; display: flex; align-items: center; gap: 10px; text-align: left; }
+  .world-card .world-emoji { font-size: 1.6rem; margin-bottom: 0; }
+
+  .option-btn { font-size: 0.82rem; padding: 9px 6px; }
+  .story-title  { font-size: 1.05rem; }
+  .story-body   { font-size: 0.84rem; }
+
+  .speech-bubble { max-width: 160px; font-size: 0.78rem; }
+  .mascot        { font-size: 1.7rem; }
+
+  .btn-lg { padding: 11px 20px; font-size: 0.94rem; }
+}
+
+/* ════════════════════════════════════════════
+   SAFE AREA (iPhone notch / home bar)
+   ════════════════════════════════════════════ */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  @media (max-width: 768px) {
+    .intro-screen,
+    .wonder-screen,
+    .story-screen,
+    .simulate-screen,
+    .play-screen,
+    .reflect-screen {
+      padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+    .feedback-content {
+      margin-bottom: env(safe-area-inset-bottom);
+    }
+  }
+}
+
+/* ════════════════════════════════════════════
+   BOSS BATTLE SCREENS
+   ════════════════════════════════════════════ */
+.boss-banner {
+  margin: 0 auto;
+  max-width: 500px;
+  width: 100%;
+  padding: 32px;
+  text-align: center;
+}
+.boss-emoji       { font-size: 4rem; display: block; margin-bottom: 8px; }
+.boss-title       { font-family: var(--font-display); font-size: 1.8rem; color: var(--gold); margin: 12px 0 8px; }
+.boss-subtitle    { color: var(--color-text-muted); margin-bottom: 20px; }
+.boss-result-screen {
+  text-align: center;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.boss-result-emoji { font-size: 4rem; margin-bottom: 8px; }
+
+@media (max-width: 480px) {
+  .boss-banner      { padding: 20px 16px; max-width: 100%; }
+  .boss-emoji       { font-size: 3rem; }
+  .boss-title       { font-size: 1.45rem; }
+  .boss-result-screen { padding: 20px 16px; }
+  .boss-result-emoji  { font-size: 3rem; }
+}
+
+/* ════════════════════════════════════════════
+   SIMULATE — COMPLETION SCREEN
+   ════════════════════════════════════════════ */
+.sim-complete-card {
+  justify-content: center;
+  align-items: stretch;
+  max-width: 480px;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .sim-complete-card { max-width: 100%; }
+}
